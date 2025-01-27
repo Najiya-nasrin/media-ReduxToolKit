@@ -10,7 +10,7 @@ const photosApi = createApi({
     return {
       getPhotos: builder.query({
         providesTags: (result, error, album) => {
-          const tags = result.map((photo) => {
+          const tags = result?.map((photo) => {
             return { type: "Photos", id: photo.id };
           });
           tags.push({ type: "AlbumPhotos", id: album.id });
